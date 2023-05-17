@@ -8,3 +8,8 @@ print("Hellloo World")
 print("Hello World")
 print("Hellloo World")
 #gghfgvdfgfghvbbnv
+my_list=[]
+
+for x in range(10):
+  my_list.append(x)
+  print(my_list)
