@@ -1,15 +1,16 @@
-pipeline{
-    agent { docker { image 'docker'} }
-    stages{
-        stage('Build'){
-            steps{
-                 sh 'docker build -t marutkumar48/mypythonimage .'
-            }
+pipeline {
+  agent any
+
+  stages {
+    stage('Build Docker Image') {
+      steps {
+        script {
+          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+            def image = docker.build('marutkumar48/python:tag', '.')
+            image.push()
+          }
         }
-        stage('Push'){
-            steps{
-                sh 'docker push marutkumar48/mypythonimage'
-            }
-        }
+      }
     }
+  }
 }
