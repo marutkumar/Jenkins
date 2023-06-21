@@ -1,16 +1,13 @@
-pipeline {
+pipeline{
     agent any
-
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building'
+    stages{
+        stage('Build'){
+            steps{
+                sh ' docker build -t marutkumar48/mypythonimage .'
             }
         }
-         stage('Test') {
-            steps {
-                echo 'Testing'
-            }
+        stage('Push'){
+            sh 'docker push marutkumar48/mypythonimage'
         }
     }
 }
