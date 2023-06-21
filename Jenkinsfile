@@ -3,11 +3,11 @@ pipeline{
     stages{
         stage('Build'){
             steps{
-                docker build -t marutkumar48/mypythonimage 
+                 docker build -t marutkumar48/mypythonimage .
             }
         }
         stage('Push'){
-             docker push marutkumar48/mypythonimage
+                 docker push marutkumar48/mypythonimage
         }
     }
 }
