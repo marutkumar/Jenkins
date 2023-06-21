@@ -7,7 +7,9 @@ pipeline{
             }
         }
         stage('Push'){
+            steps{
                 sh 'docker push marutkumar48/mypythonimage'
+            }
         }
     }
 }
