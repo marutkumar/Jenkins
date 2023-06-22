@@ -69,6 +69,7 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
+        aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/n6x3j2a7
         docker build -t va2pt_ecr .
         docker tag va2pt_ecr:latest public.ecr.aws/n6x3j2a7/va2pt_ecr:$IMAGE_TAG
         docker push public.ecr.aws/n6x3j2a7/va2pt_ecr:$IMAGE_TAG
