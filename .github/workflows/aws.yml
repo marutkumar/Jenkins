@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: ap-south-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: public.ecr.aws/n6x3j2a7/va2pt_ecr           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: va2pt_ecr           # set this to your Amazon ECR repository name
   CONTAINER_NAME: va2pt_app           # set this to the name of the container in the
                                                # containerDefinitions section of your task definition
 
