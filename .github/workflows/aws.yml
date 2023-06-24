@@ -61,7 +61,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
     - name: Set Date Variable
       id: date
-      run: echo "::set-output name=date::$(date +%Y-%m-%d_%H_%M)"
+      run: echo "::set-output name=date::$(date +%Y-%m-%d_%H_%M UTC+05.5)"
 
 
     - name: Build, tag, and push image to Amazon ECR
