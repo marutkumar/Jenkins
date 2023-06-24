@@ -59,12 +59,17 @@ jobs:
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
+      
+    - name: Get current date
+      id: date
+      run: |
+          echo "{date}={$(date +'%Y-%m-%d')}" >> "$GITHUB_ENV"
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG:    ${{ github.event.repository.updated_at}}
+        IMAGE_TAG:    ${{ env.date }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can
