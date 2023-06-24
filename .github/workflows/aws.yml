@@ -33,8 +33,8 @@ on:
 env:
   AWS_REGION: ap-south-1                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: va2pt_ecr           # set this to your Amazon ECR repository name
-  CONTAINER_NAME: va2pt_app           # set this to the name of the container in the
-                                               # containerDefinitions section of your task definition
+  CONTAINER_NAME: va2pt_app           # set this to the name of the container in the containerDefinitions section of your task definition
+  DATE: $(date +'%Y-%m-%d')
 
 permissions:
   contents: read
@@ -60,16 +60,12 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
       
-    - name: Get current date
-      id: date
-      run: |
-          echo "{date}={$(date +'%Y-%m-%d')}" >> $GITHUB_ENV
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG:  ${{ env.date }}
+        IMAGE_TAG:  ${{ env.DATE }}
       run: |
         # Build a docker container and
         # push it to ECR so that it can
