@@ -79,6 +79,6 @@ jobs:
         docker push public.ecr.aws/n6x3j2a7/va2pt_ecr:$IMAGE_TAG
         echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
         
-        - name: Deploy image
-        run: |
+    - name: Deploy image
+      run: |
         docker compose up -d 
