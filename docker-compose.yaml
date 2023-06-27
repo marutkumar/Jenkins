@@ -1,0 +1,5 @@
+services:
+  app:
+    image: "public.ecr.aws/n6x3j2a7/va2pt_ecr:2023-06-24T09-22-21"
+    ports:
+      - "5000:5000"
