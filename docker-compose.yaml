@@ -1,5 +1,5 @@
 services:
   app:
-    image: "$public.ecr.aws/n6x3j2a7/va2pt_ecr:$IMAGE_TAG"
+    image: "${$public.ecr.aws/n6x3j2a7/va2pt_ecr:$IMAGE_TAG}"
     ports:
       - "5000:5000"
