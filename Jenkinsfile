@@ -1,12 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            // Specify the Docker image to use
-            image 'maven:latest'
-            // You can also add other Docker agent options here if needed
-        }
-    }
-
+    agent any
     stages {
         stage('Build') {
             steps {
