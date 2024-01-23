@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent git
 
   stages {
     stage('Build Docker Image') {
