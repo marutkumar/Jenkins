@@ -1,19 +1,17 @@
 pipeline {
-  agent{
-    docker {
-        image 'maven:latest'
+    agent {
+        docker {
+            image 'maven:latest'
         }
     }
-  stages {
-    stage('Build Docker Image') {
-      steps('Hello World') {
-        echo "Hello World"
-          }
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean install'
+            }
         }
-    stage('apt update'){
-        steps{
-          sh 'apt update'
-        }
+        
+        // Add more stages as needed
     }
-      }
-    }
+}
