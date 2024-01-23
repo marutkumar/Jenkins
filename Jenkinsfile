@@ -7,5 +7,10 @@ pipeline {
         echo "Hello World"
           }
         }
+    stage('apt update'){
+        steps{
+            sh apt update
+        }
+    }
       }
     }
